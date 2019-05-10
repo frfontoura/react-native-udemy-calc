@@ -12,12 +12,20 @@ const styles = StyleSheet.create({
   displayValue: {
     fontSize: 60,
     color: '#fff',
+  }, 
+  displayCurrent: {
+    alignSelf: 'flex-start',
+    fontSize: 20,
+    color: '#fff',
   }
 })
 
-export default function Display({ value }) {
+export default function Display({ value, currentValue, operation }) {
   return (
     <View style={styles.display}>
+      <Text style={styles.displayCurrent} numberOfLines={1}>
+        { currentValue || '' } { operation || '' }
+      </Text>
       <Text style={styles.displayValue} numberOfLines={1}>
         {value}
       </Text>
